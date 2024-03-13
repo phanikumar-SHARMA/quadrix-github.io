@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    body {
+      background-color: blue; 
+      display: flex;
+      flex-direction: column;
+      align-items:auto;
+    }
+
+    table {
+      background-size: inline;
+      border-collapse: collapse;
+      margin: auto;
+    }
+
+    td {
+      width: 100px;
+      height: 100px;
+      border: 2px solid;
+      text-align: center;
+      font-size: 36px;
+      font-family: serif;
+    }
+
+    .btn-container {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      margin-top: 20px;
+    }
+
+    .btn-group {
+      display: flex;
+    }
+
+    .btn {
+      margin: 10px;
+      border-radius: 50%;
+      animation: rainbowText;
+    }
+
+.score {
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border: 1px solid black;
+  margin-top: 20px;
+}
+
+.sh {
+  font-family: 'Arial', sans-serif;
+  width: auto;
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
+  background-color: #00BFFF;
+  padding: 10px;
+  border-radius:20px;
+}
+
+.sb {
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  color: black;
+  margin-top: 10px;
+}
+
+.sb i {
+  margin-right: 10px;
+  font-size: 40px;
+}
+
+
+    @keyframes rotateColors {
+      0% { border-color: red; }
+      25% { border-color: yellow; }
+      50% { border-color: blue; }
+      75% { border-color: green; }
+      100% { border-color: red; }
+    }
+
+    @keyframes rainbowText {
+      0% { color: red; }
+      20% { color: orange; }
+      40% { color: yellow; }
+      60% { color: green; }
+      80% { color: blue; }
+      100% { color: violet; }
+    }
+
+    td.Y, td.O,h1 {
+      animation: rainbowText 3s infinite;
+    }
+
+    @keyframes discoBackground {
+      0% { background: linear-gradient(45deg, #ff0000, #ff00ff, #0000ff, #00ff00, #ffff00, #ff0000); }
+      25% { background: linear-gradient(45deg, #ff00ff, #0000ff, #00ff00, #ffff00, #ff0000, #ff00ff); }
+      50% { background: linear-gradient(45deg, #0000ff, #00ff00, #ffff00, #ff0000, #ff00ff, #0000ff); }
+      75% { background: linear-gradient(45deg, #00ff00, #ffff00, #ff0000, #ff00ff, #0000ff, #00ff00); }
+      100% { background: linear-gradient(45deg, #ffff00, #ff0000, #ff00ff, #0000ff, #00ff00, #ffff00); }
+    }
+
+    #message {
+      border-radius: 10px;
+      text-align: center;
+      font-size: 45px;
+      font-family: Times New Roman;
+      background-color:#00BFFF;
+      
+    }
+
+    #name1,
+    #name2 {
+      font-weight: 500px;
+      font-family: Arial ;
+      text-align: center;
+    }
+
+    h1 {
+      
+      background: linear-gradient(45deg, #000, #000);
+      background-clip: text;
+      -webkit-background-clip: text;
+      text-fill-color: transparent;
+      display: inline-block;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      
+      
+    }
+    .rotating-border {
+  display: inline-block;
+  position: relative;
+  padding: 5px;
+  animation: rotateColors 3s infinite;
+}
+
+@keyframes rotateColors {
+  0% { border-color: red; }
+  25% { border-color: yellow; }
+  50% { border-color: blue; }
+  75% { border-color: green; }
+  100% { border-color: red; }
+}
+h5 {
+    text-align: right;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 10px;
+  }
+#aboutus{
+ animation: rotateColors 3s infinite;
+ width :70px;
+ height:auto;
+ margin-left:10px;
+ border-radius:360px;
+ font-family:serif;
+ font-weight:bold;
+ border-style:dotted;
+ background-color:#00BFFF;
+ color:black;
+ cursor: pointer;
+ transition: transform 0.2s ease-in-out;
+}
+#aboutus:hover{
+   transform: scale(1.2);
+}
+.aboutthis{
+    padding:30px;
+    border-width:10px;
+    border-radius:15px;
+    border-style:dotted;
+    animation: slideDown 1.5s ease forwards;
+    background-color:auto;
+}
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+#restart{
+    animation: discoBackground 0.3s infinite;
+    color:black;
+}
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+  <!-- Bootstrap CSS link -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+  <!-- jQuery script link -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+
+  <!-- Bootstrap JS scripts (Popper.js and Bootstrap.js) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+  </br>
+  <h1 align = "center"><u>Quadrix</u></h1>
+  <button id = "aboutus" onclick = "toggleAbout();" class = "btn btn-info">INFO</br>&#9660;</button><br>
+  <script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+     function toggleAbout() {
+    var aboutus = document.getElementById('aboutus');
+   
+    var aboutthis = document.getElementById('aboutthis');
+    if (aboutthis.style.display === 'none') {
+         aboutus.innerHTML = "INFO</br>&#9650;"
+        $('.aboutthis').show();
+    } else {
+        aboutus.innerHTML = "INFO</br>&#9660;"
+        $('.aboutthis').hide();
+    }
+}
+
+</script>
+
+
+  </script>
+  <div class = "aboutthis"  id = "aboutthis">
+      <p><tt>HELLO! Welcome to<big>"Quadrix"</big>.This is a two-player gaming interface built for playing [4*4] matrix game.This was specially designed for timepass so please consider it and hope that you might like this game.Support us</tt></p>
+      <b>Key points to reference :-</b></br>
+      <ol type = "1">
+        <li>First enter your name on the player name bars.</li>  
+        <li>Click on start button to start the game.</li> 
+        <li>Devil = dark mode || Angle = light mode || Change BG = change the color of the background.</li> 
+        <li>Score will be displayed on the respective score boards</li> 
+        <li>Game always starts from Y turn.Select the Y player yourself.</li> 
+        <li>Hope you might like this game.</li>
+        <li>Game win matrix:
+        <ul type = "square">
+            <li>Horizontal row (?) </li>
+            <li>vertical col (?)</li>
+            <li>Cross section(?)</li>
+            <li>Square in edges</li>
+            <li>Square in center</li>
+        </ul>
+        </li>
+        <li><tt>THANK YOU AND PLAY WELL</tt></li> 
+      </ol>
+        <h5 align="right">--Created by k.Phani kumar</h5>
+  </div>
+
+  
+  <div id="players">
+    <div id="name1"></div>
+    
+  </div>
+<div class="score border p-3">
+  <div class="sh" id="scoreLabel1"> Score Board - Player 1</div><br>
+  <div class="sb">
+    <i class="fas fa-trophy"></i> <span id="sb">0</span>
+  </div>
+</div>
+
+
+
+
+  </br></br></br>
+  <fieldset>
+  <label for="p1" class="rotating-border"><i class="fas fa-male"></i> Player-1</label>
+  <input type="text" class="form-control" placeholder="Player-1 name" id="p1">
+  <label for="p2" class="rotating-border"><i class="fas fa-male"></i> Player-2</label>
+  <input type="text" class="form-control" placeholder="Player-2 name" id="p2">
+</fieldset>
+
+
+  <button id="restart" onclick="restart();" class="btn"><h3>&#x21BB;</h3></button>
+
+  <table id="board">
+    <tr>
+      <td id="cell_0"></td>
+      <td id="cell_1"></td>
+      <td id="cell_2"></td>
+      <td id="cell_3"></td>
+    </tr>
+    <tr>
+      <td id="cell_4"></td>
+      <td id="cell_5"></td>
+      <td id="cell_6"></td>
+      <td id="cell_7"></td>
+    </tr>
+    <tr>
+      <td id="cell_8"></td>
+      <td id="cell_9"></td>
+      <td id="cell_10"></td>
+      <td id="cell_11"></td>
+    </tr>
+    <tr>
+      <td id="cell_12"></td>
+      <td id="cell_13"></td>
+      <td id="cell_14"></td>
+      <td id="cell_15"></td>
+    </tr>
+  </table><br><br>
+  <div id="message"> It's Y's turn</div>
+  <br><br>
+  <button class="btn btn-info" onclick="start();">START</button>
+  <button class="btn btn-dark" onclick="bg();">Devil's Mode</button>
+  <button class="btn btn-light" onclick="bgw();">Angel's Mode</button>
+  <button id="generateBtn" class="btn btn-primary">Change BG</button>
+  <br><br><br></br>
+<div id="name2"></div>
+
+    
+    <div class="score border p-3 mt-3">
+  <div class="sh" id="scoreLabel2"> Score Board - Player 2</div><br>
+  <div class="sb">
+    <i class="fas fa-trophy"></i> <span id="sbd">0</span>
+  </div>
+</div>
+  <div class="audio">
+  <audio src="https://whyp.it/tracks/embed?id=155254&token=8YI44" width="100%" height="200" scrolling="no" frameborder="0" id ="clip1"></audio>
+  </div>
+  <script src="script.js"></script>
+  <script>
+var Xscore = 0;
+var Yscore = 0;
+var audio = $("#clip1")[0];
+
+$(document).ready(function () {
+  $('.aboutthis').hide();
+  $('audio').hide();
+  $('.message').hide();
+  $('table').hide();
+  $('#message').hide();
+  $('#restart').hide();
+});
+
+function start() {
+    $(".btn.btn-info").click(function(){
+
+      $('table').slideDown(2000);
+    });
+  $('audio').hide();
+  $('input').hide();
+  $('label').hide();
+  $('table').show();
+  $('#message').show();
+  $('#dark').show();
+  $('#restart').show();
+  var p1 = document.getElementById('p1').value;
+  var p2 = document.getElementById('p2').value;
+
+  document.getElementById('scoreLabel1').innerHTML = "Score Board - " + p1;
+  document.getElementById('scoreLabel2').innerHTML = "Score Board - " + p2;
+
+  var board = document.getElementById("board");
+  var cells = board.getElementsByTagName("td");
+  var message = document.getElementById("message");
+  var turn = "Y";
+  var gameOver = false;
+  var moves = 0;
+  winPatterns = [
+    [0, 1, 2, 3],
+    [4, 5, 6, 7],
+    [8, 9, 10, 11],
+    [12, 13, 14, 15],
+    [0, 5, 10, 15],
+    [3, 6, 9, 12],
+    [0, 4, 8, 12],
+    [3, 7, 11, 15],
+    [1, 5, 9, 13],
+    [2, 6, 10, 14],
+    [0, 1, 4, 5],
+    [2, 3, 6, 7],
+    [8, 9, 12, 13],
+    [10, 11, 14, 15],
+    [5, 6, 9, 10]
+  ];
+
+  for (var i = 0; i < cells.length; i++) {
+    cells[i].addEventListener("click", cellClicked);
+  }
+
+  function cellClicked(e) {
+    if (gameOver || e.target.textContent !== "") {
+      return;
+    }
+    e.target.textContent = turn;
+    e.target.classList.add(turn);
+    moves++;
+    checkGameOver();
+    switchTurn();
+  }
+
+  function checkGameOver() {
+    for (var i = 0; i < winPatterns.length; i++) {
+      var cell1 = cells[winPatterns[i][0]];
+      var cell2 = cells[winPatterns[i][1]];
+      var cell3 = cells[winPatterns[i][2]];
+      var cell4 = cells[winPatterns[i][3]];
+      if (cell1.textContent !== "" && cell1.textContent === cell2.textContent &&
+        cell1.textContent === cell3.textContent && cell1.textContent === cell4.textContent) {
+        var win = turn;
+        gameOver = true;
+        message.textContent = "Congratulations" + "  " + turn + "   " + "wins!";
+        cell1.style.backgroundColor = "#00BFFF";
+        cell2.style.backgroundColor = "#00BFFF";
+        cell3.style.backgroundColor = "#00BFFF";
+        cell4.style.backgroundColor = "#00BFFF";
+        if (win == 'Y' || win == 'y') {
+          Xscore++;
+        } else if (win == 'O' || win == 'o') {
+          Yscore++;
+        }
+        document.getElementById('sb').innerHTML = Xscore;
+        document.getElementById('sbd').innerHTML = Yscore;
+        return;
+      }
+    }
+    if (moves === 16) {
+      gameOver = true;
+      message.textContent = "It's a tie!";
+    }
+  }
+
+  function switchTurn() {
+    if (!gameOver) {
+      if (turn === "Y") {
+        turn = "O";
+      } else {
+        turn = "Y";
+      }
+      message.textContent = turn + "'s turn";
+    }
+  }
+}
+
+function bg() {
+  audio.play();
+  $('audio').hide();
+  $('body').css("background-color", "black");
+  $('body').css("background-image", "none");
+  $('body').css("color", "white");
+  $('td').css("color", 'white');
+  $('#dark').hide();
+  $('td').css("font-size", "70px");
+  $('#angele').show('slow');
+  $('#start').hide();
+  $('#restart').show();
+  $('#generateBtn').show();
+  $('#restart').css('color', 'white');
+  $('.sb').css("color", "white");
+}
+
+
+function bgw() {
+  $('audio').hide();
+  $('body').css("background-color", "white");
+  $('body').css("color", "black");
+  $('td').css("color", 'black');
+  $('#angele').hide();
+  $('#dark').show();
+  $('#start').hide();
+  $('#restart').show();
+  $('#generateBtn').show();
+  $('.sh').css("background-color", "white");
+  $('.sh').css("color", "white");
+  $('.sb').css("color", "white");
+  $('.sbd').css("color", "white");
+  $('.sh').css("color", "black");
+  $('#restart').css('color', 'black');
+}
+
+function restart() {
+  $("td").text("");
+  $("td").css("backgroundColor", "");
+  Xscore;
+  Yscore;
+  var gameOver = false;
+  var moves = 0;
+  $('#message').text("It's Y's turn");
+  start();
+}
+
+$(document).ready(function () {
+  $("#generateBtn").click(function () {
+    var colors = ["#ff0000", "#ff0000", "#00ff00", "#00ff00", "#0000ff", "#0000ff", "#ffff00", "#ffff00", "#ff00ff", "#ff00ff", "#00ffff", "#00ffff", "#800000", "#800000", "#008000", "#008000", "#000080", "#000080", "#808000", "#808000", "#800080", "#800080", "#008080", "#008080", "#c0c0c0", "#c0c0c0", "#808080", "#808080", "#ff0000", "#ff0000", "#00ff00", "#00ff00", "#0000ff", "#0000ff", "#ffff00", "#ffff00", "#ff00ff", "#ff00ff", "#00ffff", "#00ffff", "#800000", "#800000", "#008000", "#008000", "#000080", "#000080", "#808000", "#808000", "#800080", "#800080"]; 
+    var randomColorIndex = Math.floor(Math.random() * colors.length);
+    var randomColor = colors[randomColorIndex];
+    $("body").css("background-color", randomColor);
+  });
+});
+
+  </script>
+</body>
+</html>
